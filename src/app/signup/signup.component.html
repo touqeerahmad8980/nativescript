@@ -1,1 +1,13 @@
-<Button text="signup works!" class="btn btn-primary"></Button>
+<StackLayout class="p-15">
+    <GridLayout height="90%" rows="200, 60, 60, auto, auto">
+        <Image row='0' width="200" height="50" src="~/assets/images/mars-logo.png"></Image>
+        <TextField class="input_border-color" row="1" [(ngModel)]="textFieldValue" hint="Enter your email"></TextField>
+        <TextField class="input_border-color" row="2" [(ngModel)]="textFieldValue" hint="Enter your password"></TextField>
+        <button  row="3" height="60" text="LOG IN" fontWeight="bold" fontSize="18" backgroundColor="#9d2a3b" color="#fff" class="m-t-20"></button>
+        <Label row="4" width="200" textAlignment="center" marginTop="10" verticalAlignment="center" color="#a9a9a9" fontSize="17" text="Forgot your password?"></Label>
+    </GridLayout>
+    <FlexboxLayout flexDirection="row" justifyContent="center">
+        <Label color="#a9a9a9" fontSize="17" text="Already a member?"></Label>
+        <Label text="LOGIN HERE" color="#696969" marginLeft="5" textAlignment="left" fontWeight="bold" fontSize="17" [nsRouterLink]="['/login']"></Label>
+    </FlexboxLayout> 
+</StackLayout>
