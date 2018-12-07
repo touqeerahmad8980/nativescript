@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "nativescript-angular": "~7.0.0",
+    "nativescript-radiobutton": "^0.1.0",
     "nativescript-theme-core": "~1.0.4",
     "reflect-metadata": "~0.1.8",
     "rxjs": "~6.3.0",
@@ -34,7 +35,8 @@
     "@ngtools/webpack": "~7.0.0",
     "nativescript-dev-sass": "^1.6.0",
     "nativescript-dev-typescript": "~0.7.0",
-    "nativescript-dev-webpack": "~0.18.0"
+    "nativescript-dev-webpack": "~0.18.0",
+    "ts-loader": "^5.3.1"
   },
   "readme": "NativeScript Application"
 }

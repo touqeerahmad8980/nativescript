@@ -4,7 +4,7 @@
         <Image row='1' marginBottom="50" height="50" src="~/assets/images/mars-logo.png"></Image>
         <TextField class="input_border-color" row="2" [(ngModel)]="textFieldValue" hint="Enter your email"></TextField>
         <TextField class="input_border-color" row="3" [(ngModel)]="textFieldValue" hint="Enter your password"></TextField>
-        <button  row="4" height="60" text="LOG IN" fontWeight="bold" fontSize="18" backgroundColor="#9d2a3b" color="#fff" class="m-t-20"></button>
+        <button  row="4" height="60" text="LOG IN" fontWeight="bold" fontSize="18" backgroundColor="#9d2a3b" color="#fff" class="m-t-20" [nsRouterLink]="['/home']"></button>
         <Label row="5" width="200" textAlignment="center" marginTop="10" verticalAlignment="center" color="#a9a9a9" fontSize="17" text="Forgot your password?" [nsRouterLink]="['/resetPass']"></Label>
     </GridLayout>
     <FlexboxLayout flexDirection="row" justifyContent="center" dock="bottom">

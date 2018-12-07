@@ -263,7 +263,7 @@ module.exports = env => {
                 "@angular/common",
                 "@angular/router",
                 "nativescript-angular/platform-static",
-                "nativescript-angular/router",
+                "nativescript-angular/router"
             ],
             projectRoot,
             webpackConfig: config,
