@@ -1,8 +1,7 @@
 <ActionBar title="Register to Mars Translation" backgroundColor="#9d2a3b"; class="action-bar">
 </ActionBar>
 <DockLayout stretchLastChild="false" class="p-15">
-    <GridLayout rows="auto, 60, 60, 60, 60, auto, auto" dock="top">
-        <!-- <Label col="0" row="0" text="." class="h2 m-r-2 m-l-12 m-t-10"></Label> -->
+    <GridLayout rows="auto, 60, 60, 60, 60, auto" dock="top">
         <Label row="0" text="Enter your details below." class="h3 p-b-10"></Label>
         <TextField class="input_border-color" row="1" [(ngModel)]="textFieldValue" hint="Enter full Name"></TextField>
         <TextField class="input_border-color" row="2" [(ngModel)]="textFieldValue" hint="Enter email address"></TextField>
@@ -14,4 +13,4 @@
         <Label color="#a9a9a9" fontSize="17" text="Already a member?"></Label>
         <Label text="LOGIN HERE" color="#696969" marginLeft="5" textAlignment="left" fontWeight="bold" fontSize="17" [nsRouterLink]="['/login']"></Label>
     </FlexboxLayout> 
-    </DockLayout>
+</DockLayout>
