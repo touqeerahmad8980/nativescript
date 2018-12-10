@@ -10,7 +10,10 @@ So you can still use template expressions, bindings, templates as well as all th
 The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
 http://docs.nativescript.org/ui/action-bar
 -->
-<ActionBar title="My App" class="action-bar">
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"ios.position="left"></ActionItem>
+    <Label class="action-bar-title" text="Items"></Label>
 </ActionBar>
 
 <!--
@@ -26,8 +29,7 @@ class names available for styling your app at https://docs.nativescript.org/ui/t
 <StackLayout class="page">
     <ListView [items]="items" class="list-group">
         <ng-template let-item="item">
-            <Label [nsRouterLink]="['/item', item.id]" [text]="item.name"
-                class="list-group-item"></Label>
+            <Label [nsRouterLink]="['/item', item.id]" [text]="item.name" class="list-group-item"></Label>
         </ng-template>
     </ListView>
 </StackLayout>

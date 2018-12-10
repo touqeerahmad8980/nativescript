@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { sharedServices } from '../shared/shared-services.service';
 
 @Component({
   selector: 'ns-signup',
@@ -7,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   moduleId: module.id,
 })
 export class SignupComponent implements OnInit {
-  
-  constructor() {}
-  
-  ngOnInit() {
+  public user: string;
+  public pass: string;
+  public message: string = "";
+  constructor(private service: sharedServices) {}
+
+  public submit() {
+    this.makePostRequest();
   }
 
+  private makePostRequest() {
+    this.service
+      .postData({ username: this.user, password: this.pass })
+      .subscribe(res => {
+          this.message = (<any>res).json.data.username;
+      });
+  }
+
+  ngOnInit() {
+  }
 }

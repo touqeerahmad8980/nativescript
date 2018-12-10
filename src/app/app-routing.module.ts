@@ -1,22 +1,21 @@
 import { NgModule } from "@angular/core";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
-
+import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { HomeComponent } from "./home/home.component";
 import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
 import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
 import { ResetPasswordComponent } from "./reset-password/reset-password.component";
-import { HomeComponent } from "./home/home.component";
+import { SettingComponent } from "./setting/setting.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/login", pathMatch: "full" },
+    { path: "", redirectTo: "/home", pathMatch: "full" },
+    { path: "home", component: HomeComponent },
     { path: "login", component: LoginComponent },
     { path: "signup", component: SignupComponent },
-    { path: "resetPass", component: ResetPasswordComponent },
-    { path: "home", component: HomeComponent },
-    { path: "items", component: ItemsComponent },
-    { path: "item/:id", component: ItemDetailComponent },
+    { path: "resetPassword", component: ResetPasswordComponent },
+    { path: "setting", component: SettingComponent },
+    { path: "items", component: ItemsComponent }
 ];
 
 @NgModule({
