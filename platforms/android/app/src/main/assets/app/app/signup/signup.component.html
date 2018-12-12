@@ -7,11 +7,11 @@
         <Switch row="1" col="1" width="50" checked="false" (tap)="onFirstChecked($event)"></Switch>
         <Label row="2" col="0" verticalAlignment="center" fontSize="18" text="Client" textWrap="true"></Label>
         <Switch row="2" col="1" width="50" checked="true" (tap)="onSecondChecked($event)"></Switch> -->
-        <TextField class="input_border-color" row="1" [(ngModel)]="nameValue" hint="Enter full Name"></TextField>
-        <TextField class="input_border-color" row="2" [(ngModel)]="emailValue" hint="Enter email address"></TextField>
-        <TextField class="input_border-color" row="3" [(ngModel)]="phoneValue" hint="Enter phone number"></TextField>
-        <TextField class="input_border-color" row="4" [(ngModel)]="passwordValue" hint="Enter password"></TextField>
-        <button  row="5" height="60" text="REGISTER" fontWeight="bold" fontSize="18" color="#fff" class="m-t-20" (tap)="submit()"></button>
+        <TextField class="input_border-color" row="1" [(ngModel)]="input.name" hint="Enter full Name"></TextField>
+        <TextField class="input_border-color" row="2" [(ngModel)]="input.email" keyboardType="email" hint="Enter email address"></TextField>
+        <TextField class="input_border-color" row="3" [(ngModel)]="input.phone" keyboardType="phone" hint="Enter phone number"></TextField>
+        <TextField class="input_border-color" row="4" [(ngModel)]="input.password" hint="Enter password"></TextField>
+        <button  row="5" height="60" text="REGISTER" fontWeight="bold" fontSize="18" color="#fff" class="m-t-20" (tap)="register()"></button>
     </GridLayout>
     <FlexboxLayout dock="bottom" flexDirection="row" justifyContent="center">
         <Label color="#a9a9a9" fontSize="17" text="Already a member?"></Label>

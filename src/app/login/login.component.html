@@ -2,9 +2,9 @@
     <GridLayout rows="auto , auto, auto, 60, 60, auto, auto" dock="top">
         <Label  row="0" marginBottom="50" text=""></Label>
         <Image row='1' marginBottom="50" height="50" src="~/assets/images/mars-logo.png"></Image>
-        <TextField class="input_border-color" row="2" [(ngModel)]="textFieldValue" hint="Enter your email"></TextField>
-        <TextField class="input_border-color" row="3" [(ngModel)]="textFieldValue" hint="Enter your password"></TextField>
-        <button  row="4" height="60" text="LOG IN" fontWeight="bold" fontSize="18" color="#fff" class="m-t-20" [nsRouterLink]="['/home']"></button>
+        <TextField class="input_border-color" row="2" [(ngModel)]="input.email" hint="Enter your email"></TextField>
+        <TextField class="input_border-color" row="3" [(ngModel)]="input.password" hint="Enter your password"></TextField>
+        <button  row="4" height="60" text="LOG IN" fontWeight="bold" fontSize="18" color="#fff" class="m-t-20" (tap)="login()"></button>
         <Label row="5" width="200" textAlignment="center" marginTop="10" verticalAlignment="center" color="#a9a9a9" fontSize="17" text="Forgot your password?" [nsRouterLink]="['/resetPassword']"></Label>
     </GridLayout>
     <FlexboxLayout flexDirection="row" justifyContent="center" dock="bottom">
