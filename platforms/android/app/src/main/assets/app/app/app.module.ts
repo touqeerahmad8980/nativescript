@@ -6,7 +6,6 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
-import { ItemsComponent } from "./item/items.component";
 import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
 import { ResetPasswordComponent } from "./reset-password/reset-password.component";
@@ -17,7 +16,6 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
-import { sharedServices } from "./shared/shared-services.service";
 
 @NgModule({
     bootstrap: [
@@ -37,10 +35,9 @@ import { sharedServices } from "./shared/shared-services.service";
         LoginComponent,
         SignupComponent,
         ResetPasswordComponent,
-        ItemsComponent,
         SettingComponent,
     ],
-    providers: [sharedServices],
+    providers: [],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
