@@ -16,8 +16,7 @@ import { Validators,AbstractControl, FormBuilder, FormGroup} from '@angular/form
 })
 export class LoginComponent implements OnInit {
   
-  valid = "VALID";
-      signUpForm: FormGroup;    
+    signUpForm: FormGroup;    
      email:AbstractControl;
     username:AbstractControl;
     button:boolean;
@@ -29,7 +28,7 @@ constructor(private formBuilder:FormBuilder){
 }
 
 onButtonTap(){
-    alert(JSON.stringify(this.signUpForm.status));
+    alert(JSON.stringify(this.signUpForm.value));
 }
   
   
@@ -47,10 +46,11 @@ public input: any;
 //   }
 
   ngOnInit() {
-    if(JSON.stringify(this.signUpForm.status) == this.valid ){
-        this.button = true;
-    }else{
+      this.onButtonTap();
+    if(JSON.stringify(this.signUpForm.status) == "VALID" ){
         this.button = false;
+    }else{
+        this.button = true;
     }
     //   if(ApplicationSettings.getBoolean("authenticated", false)) {
     //     this.router.navigate(["/home"], { clearHistory: true });
