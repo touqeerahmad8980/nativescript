@@ -24,7 +24,7 @@
                     <Label col="1" text="Search" class="p-r-10"></Label>
                 </GridLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="closeMenu()" [nsRouterLink]="['/items']" [class.selected]="onSelected('/items')">
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="closeMenu()">
                     <Label col="0" text="&#xf005;" class="fa"></Label>
                     <Label col="1" text="Featured" class="p-r-10"></Label>
                 </GridLayout>
@@ -34,6 +34,11 @@
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="closeMenu()" [nsRouterLink]="['/setting']" [class.selected]="onSelected('/setting')">
                     <Label col="0" text="&#xf013;" class="fa"></Label>
                     <Label col="1" text="Settings" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="logOut()">
+                    <Label col="0" text="&#xf08b;" class="fa"></Label>
+                    <Label col="1" text="LOGOUT" class="p-r-10"></Label>
                 </GridLayout>
             </StackLayout>
         </ScrollView>

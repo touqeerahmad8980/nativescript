@@ -3,7 +3,8 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { RouterExtensions } from "nativescript-angular/router";
 import * as ApplicationSettings from "application-settings";
-import { Data } from "../shared/service";
+import { sharedService } from "../shared/service";
+import { getRootView } from "tns-core-modules/application";
 
 @Component({
   selector: 'ns-home',
@@ -14,25 +15,28 @@ import { Data } from "../shared/service";
 export class HomeComponent implements OnInit {
   
   currentUser;
-
-  constructor(private router: RouterExtensions,private data: Data) { }
+  public drawer: RadSideDrawer;
+  constructor(private router: RouterExtensions,private service: sharedService) { }
 
   ngOnInit() {
     if(!ApplicationSettings.getBoolean("authenticated", false)) {
       this.router.navigate(["/login"], { clearHistory: true });
     }else{
-      this.currentUser = this.data.storage;
+      this.currentUser = this.service.storage;
     }
-  }
 
+  }
+  
   onDrawerButtonTap(): void {
     const sideDrawer = <RadSideDrawer>app.getRootView();
     sideDrawer.showDrawer();
   }
 
-  public logout() {
-    ApplicationSettings.remove("authenticated");
-    this.router.navigate(["/login"], { clearHistory: true });
+  ngAfterViewInit() {
+    setTimeout(() => {
+        this.drawer = <RadSideDrawer>getRootView();
+        this.drawer.gesturesEnabled = true;
+    }, 100);
   }
   
 }

@@ -31,8 +31,7 @@ export class SignupComponent implements OnInit {
 
   public register() {
     if(this.input.name && this.input.email && this.input.phone && this.input.password) {
-        // ApplicationSettings.setString("account", JSON.stringify(this.input));
-        ApplicationSettings.setString(this.input.email, JSON.stringify(this.input));
+        ApplicationSettings.setString("account", JSON.stringify(this.input));
         this.location.back();
     } else {
         (new SnackBar()).simple("All Fields Required!");

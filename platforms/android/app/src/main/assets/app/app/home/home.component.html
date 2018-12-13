@@ -3,11 +3,11 @@
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"ios.position="left"></ActionItem>
     <Label class="action-bar-title" text="Home"></Label>
 </ActionBar> -->
+<ns-sidedrawer></ns-sidedrawer>
 <ActionBar class="action-bar">
     <GridLayout columns="auto,*, *" rows="*" sdkExampleTitle sdkToggleNavButton>
         <Label text="&#xf0c9;" class="fa" fontSize="20" paddingRight="10" borderRightWidth="1" borderRightColor="rgba(255, 255, 255, 0.5)" verticalAlignment="center" (tap)="onDrawerButtonTap()"></Label>
         <Label col="1" text="Mars Translation" fontSize="20" textAlignment="center" verticalAlignment="center" fontWeight="bold"></Label>
-        <Label col="2" text="Logout" ios.position="true" (tap)="logout()"></Label>
     </GridLayout>
 </ActionBar>
 

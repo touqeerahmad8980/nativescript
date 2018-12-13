@@ -1,8 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
-
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
@@ -11,12 +9,12 @@ import { SignupComponent } from "./signup/signup.component";
 import { ResetPasswordComponent } from "./reset-password/reset-password.component";
 import { SettingComponent } from './setting/setting.component';
 
-import { Data } from "./shared/service";
-// Uncomment and add to NgModule imports if you need to use two-way binding
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { sharedService } from "./shared/service";
 
-// Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
+import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 @NgModule({
     bootstrap: [
@@ -24,6 +22,7 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
     ],
     imports: [
         AppRoutingModule,
+        ReactiveFormsModule,
 
         NativeScriptModule,
         NativeScriptUISideDrawerModule,
@@ -38,7 +37,7 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         ResetPasswordComponent,
         SettingComponent,
     ],
-    providers: [Data],
+    providers: [sharedService],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

@@ -3,6 +3,7 @@ import { NavigationEnd, Router } from "@angular/router";
 import { filter } from "rxjs/operators";
 import { RadSideDrawer} from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { sharedService } from "./shared/service";
 
 
 @Component({
@@ -14,7 +15,7 @@ export class AppComponent {
     
     private _activatedUrl: string;
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private service: sharedService) {
         // Use the component constructor to inject services.
     }
 
@@ -34,4 +35,8 @@ export class AppComponent {
         sideDrawer.closeDrawer();
     }
 
+    logOut(){
+        this.service.logout();
+        this.closeMenu();
+    }
  }

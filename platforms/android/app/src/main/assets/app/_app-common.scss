@@ -94,3 +94,41 @@
     background-color: $ruby;
     
 }
+
+.custom_field{
+
+    padding-left: 0;
+
+    padding-bottom: 15;
+
+    &.password{
+
+        font-family: inherit;
+
+    }
+
+}
+
+.submit_button{
+
+    height:  60; 
+    
+    font-size: 18;
+    
+    font-weight: bold;
+    
+    color: #fff;
+
+}
+
+.validation {
+
+    // background-color: #a94442;
+
+    // color: #fff;
+
+    // padding: 10;
+
+    // margin-top: -10;
+
+}
