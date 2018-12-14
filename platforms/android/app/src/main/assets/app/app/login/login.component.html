@@ -1,18 +1,25 @@
-<!-- <DockLayout stretchLastChild="false" class="p-15">
+<DockLayout stretchLastChild="false" class="p-15" [formGroup]="loginForm">
     <GridLayout rows="auto , auto, auto, auto" dock="top">
         <StackLayout row="0">
             <Label marginBottom="50" text=""></Label>
             <Image marginBottom="50" height="50" src="~/assets/images/mars-logo.png"></Image>
         </StackLayout>
-        <StackLayout row="1">
-            <TextField required hint="fill this out..." [(ngModel)]="textField" #element #elementModel="ngModel" minLength="6"></TextField>
-            <Label class="validation" [visibility]="elementModel.valid ? 'collapse' : 'visible'" text="Field is required" ></Label>
+        <StackLayout row="1" marginBottom="15">
+            <TextField class="custom_field" hint="Enter your email" keyboardType="email" formControlName="email"></TextField>
+            <StackLayout [visibility]="validate.email.errors && (validate.email.dirty || validate.email.touched) ? 'visible' : 'collapsed'">
+                <Label [visibility]="validate.email.errors.required ? 'visible' : 'collapsed'" text="Email is required."></Label>
+                <Label [visibility]="validate.email.errors.email ? 'visible' : 'collapsed'" text="Email must be a valid email address"></Label>
+            </StackLayout>
         </StackLayout>
         <StackLayout row="2" marginBottom="15">
-            <TextField class="custom_field password" [(ngModel)]="input.password" secure="true" hint="Enter your password" ></TextField>
+            <TextField class="custom_field password" hint="Enter your password" secure="true" formControlName="password"></TextField>
+            <StackLayout [visibility]="validate.password.errors && (validate.password.dirty || validate.password.touched) ? 'visible' : 'collapsed'">
+                <Label [visibility]="validate.password.errors.required ? 'visible' : 'collapsed'" text="password is required."></Label>
+                <Label [visibility]="validate.password.errors.minlength ? 'visible' : 'collapsed'" text="password must be 6 characters."></Label>
+            </StackLayout>
         </StackLayout>
-        <StackLayout row="3"> 
-            <button text="LOG IN" class="submit_button" (tap)="login()"></button>
+        <StackLayout row="3">
+            <button text="LOG IN" isEnabled="{{loginForm.valid}}" class="submit_button" (tap)="onSubmit()"></button>
             <Label width="200" textAlignment="center" marginTop="10" verticalAlignment="center" color="#a9a9a9" fontSize="17" text="Forgot your password?" [nsRouterLink]="['/resetPassword']"></Label>
         </StackLayout>
     </GridLayout>
@@ -20,10 +27,4 @@
         <Label color="#a9a9a9" fontSize="17" text="Don't have your account?"></Label>
         <Label text="SIGNUP" color="#696969" marginLeft="5" textAlignment="left" fontWeight="bold" fontSize="17" [nsRouterLink]="['/signup']"></Label>
     </FlexboxLayout> 
-</DockLayout>    -->
-    
-<StackLayout [formGroup]="signUpForm">
-    <TextField formControlName="email" hint="Email" keyboardType="email"></TextField>
-    <TextField formControlName="username" hint="Username"></TextField>
-    <Button [isEnabled]="button" text="sign up" (tap)="onButtonTap()"></Button>
-</StackLayout>
+</DockLayout>

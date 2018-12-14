@@ -119,6 +119,14 @@
     
     color: #fff;
 
+    &:disabled{
+
+        background-color: #a94442;
+
+        color: #adadad;
+        
+    }
+
 }
 
 .validation {
