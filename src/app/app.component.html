@@ -1,10 +1,10 @@
 <!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
-<RadSideDrawer [drawerTransition]="sideDrawerTransition">
+<RadSideDrawer [drawerTransition]="sideDrawerTransition"  (loaded)="userData()">
     <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
         <StackLayout row="0" class="sidedrawer-header">
             <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
-            <Label class="sidedrawer-header-brand" [text]="this.userData.email"></Label>
-            <Label class="footnote" [text]="this.userData.fName"></Label> 
+            <Label class="sidedrawer-header-brand" [text]="userName"></Label>
+            <Label class="footnote" [text]="userEmail"></Label>
         </StackLayout>
     
         <ScrollView row="1">
@@ -44,5 +44,5 @@
         </ScrollView>
     </GridLayout>
 
-    <page-router-outlet tkMainContent class="page-content"></page-router-outlet>
+    <page-router-outlet tkMainContent class="page-content" (activate)="userData()"></page-router-outlet>
 </RadSideDrawer>

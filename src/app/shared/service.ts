@@ -10,6 +10,7 @@ export class sharedService{
 
     
     ngOnInit() {
+    return this.storage;
     }
 
     logout() {

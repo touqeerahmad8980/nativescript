@@ -1,50 +1,66 @@
-import { Component, NgZone} from "@angular/core";
+import { Component, NgZone, ViewChild } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
 import { filter } from "rxjs/operators";
-import { RadSideDrawer} from "nativescript-ui-sidedrawer";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { sharedService } from "./shared/service";
+import {Observable} from 'rxjs'; // Angular 6 
 
 @Component({
     selector: "ns-app",
     moduleId: module.id,
     templateUrl: "./app.component.html"
 })
-export class AppComponent{
-    
-    _activatedUrl: string;
-    userData = this.service.storage;
+export class AppComponent {
 
-    constructor(private router: Router, private service: sharedService, private zone: NgZone) {
+    _activatedUrl: string;
+    userName;
+    userEmail;
+    counter : number = 0;
+
+    constructor(private router: Router, private service: sharedService, private zone: NgZone,
+        // private hc: HomeComponent
+        ) {
+            // alert(hc.userData());
         // Use the component constructor to inject services.
-        // this.zone.run(() => {
-        //     this.email = this.service.storage.email;
-        //     this.name = this.service.storage.fName;
-        //   });
     }
 
-    ngOnInit(){
+    ngOnInit() {
 
         this.router.events
         .pipe(filter((event: any) => event instanceof NavigationEnd))
         .subscribe((event: NavigationEnd) => this._activatedUrl = event.urlAfterRedirects);
-        // this.email = this.service.storage.email;
-        // this.name = this.service.storage.fName;
+        // this.child.userData();
+        this.userEmail.subscribe(x => this.service.storage.email = x);
+        this.userName = this.service.storage.fName;
+
     }
-    
-    
-    onSelected(url:string):boolean{
+
+    onSelected(url: string): boolean {
         return this._activatedUrl === url;
     }
-    
-    closeMenu(){
+
+    closeMenu() {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.closeDrawer();
     }
 
-    logOut(){
+    logOut() {
         this.service.logout();
         this.closeMenu();
     }
 
- }
+    
+    userData(){
+        this.userEmail = this.service.storage.email;
+        this.userName = this.service.storage.fName;
+        alert(this.counter++);
+    }
+
+    ngAfterViewInit() {
+        setTimeout(() => {
+            this.userData();
+        }, 100);
+    }
+
+}

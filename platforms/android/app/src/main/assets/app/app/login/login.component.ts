@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
                 this.service.storage = account;
                 ApplicationSettings.setBoolean("authenticated", true);
                 this.router.navigate(["/home"], { clearHistory: true });
+                return this.service.storage;
             } else {
                 (new SnackBar()).simple("Incorrect Credentials!");
             }

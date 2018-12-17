@@ -15,16 +15,17 @@ import { getRootView } from "tns-core-modules/application";
 export class HomeComponent implements OnInit {
   
   public drawer: RadSideDrawer;
-  username;
+  userName;
+  userEmail;
   constructor(private router: RouterExtensions,private service: sharedService) {
     // this.username = this.service.storage.email;
    }
 
   ngOnInit() {
+
     if(!ApplicationSettings.getBoolean("authenticated", false)) {
       this.router.navigate(["/login"], { clearHistory: true });
     }
-
   }
   
   onDrawerButtonTap(): void {
