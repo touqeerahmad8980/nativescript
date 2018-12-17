@@ -95,48 +95,17 @@
     
 }
 
-.custom_field{
+.validation {
 
-    padding-left: 0;
-
-    padding-bottom: 15;
-
-    &.password{
-
-        font-family: inherit;
-
-    }
+    color: #a94442;
 
 }
 
-.submit_button{
-
-    height:  60; 
-    
-    font-size: 18;
-    
-    font-weight: bold;
-    
-    color: #fff;
+button{
 
     &:disabled{
 
-        background-color: #a94442;
-
-        color: #adadad;
+        background-color: lightgrey;
         
     }
-
-}
-
-.validation {
-
-    // background-color: #a94442;
-
-    // color: #fff;
-
-    // padding: 10;
-
-    // margin-top: -10;
-
 }
